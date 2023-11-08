@@ -12,7 +12,7 @@ This process was originally created for the M1/M2/M3/etc Macbooks but in theory 
 I highly recommend going through the entire instruction list once before starting the process, at least for the Contiki & Docker part. The "Contiki Setup" goes through the actual installation and setup process while "Host v. Docker Workflow" explains exactly how to get the best out the cohabitation of Docker and local terminal. 
 
 This instruction set was made for Apple Macbooks using Silicon processors but should in theory be partly useful for other OS's as well, at least the Contiki Setup itself.
-### Contiki Setup
+## Contiki Setup
 1. Install [Docker](https://docs.docker.com/desktop/) & Git
 	1. Sign In/Up in Docker Application
 2. **IMPORTANT:** Install the MSP430 Compiler 
@@ -46,7 +46,7 @@ This instruction set was made for Apple Macbooks using Silicon processors but sh
 	1. The name can be seen in Docker application or using `docker ps`
 7. Once steps 5 finishes or 6 is run, a SSH connection will be opened to the container and if the alias and CNG_PATH was correctly set, you should be inside the `contiki-ng` folder.
 ![[Pasted image 20231108114100.png]]
-##### Docker/Contiki Troubleshoot
+### Docker/Contiki Troubleshoot
 - Make sure environmental paths are correct and correctly placed!
 	- They can be notoriously tricky
 	- Commands like `alias` can also localised to a certain folder so be aware of that
@@ -63,7 +63,7 @@ This instruction set was made for Apple Macbooks using Silicon processors but sh
 	- Then add the following line to ~/.zshrc or ~/.bashrc depending on terminal setup:
 		- `export PATH="/usr/local/opt/make/libexec/gnubin:$PATH”`
 
-#### Host v. Docker Workflow
+## Host v. Docker Workflow
 The problem for M1/M2 is the GCC and more importantly, the MSP430 compiler and it's relationship with the Vagrant tool and VM images/ISO's. Docker allows user to work in the same directory, at the same time, both on host and in Docker(As long as a given file is not used by both). This allows for the following workflow:
 - Open 2 terminals
 	- 1 for Docker by using `contiker bash`
@@ -86,9 +86,9 @@ The problem for M1/M2 is the GCC and more importantly, the MSP430 compiler and i
 	- Same as uploading, logging onto the mote works through the local machine. This is way easier than configuring the Docker container to allow the USB connection.
 
 This way, Docker takes care of compiling the actual files while every other step can be done locally like any other development experience. 
-###### No Vagrant, No Virtual Machine!
+##### No Vagrant, No Virtual Machine!
 
-### Cooja Setup
+## Cooja Setup
 1. Install [OpenJDK@17](https://formulae.brew.sh/formula/openjdk@17#default) through Homebrew
 	1. **Important**: Has to be version 17 if used with release 4.9 or so it seems
 		1. Depending on Homebrew setup, you might get an error along the lines of `cannot install in Homebrew on ARM processor in Intel default prefix`. If so, add `arch -x86_64` before `brew install...` command
@@ -109,7 +109,7 @@ This way, Docker takes care of compiling the actual files while every other step
 
 Same as with Contiki, with a bit of Homebrew and environmental path magic, we get a much simpler and more enjoyable process. Both Cooja and Mote development in the same directory, without any VM hassle.
 ###### No Vagrant, No Virtual Machine!
-##### Cooja Troubleshooting
+### Cooja Troubleshooting
 In case the Cooja creation causes trouble, here are some possible step to resolve the issue:
 - Restart terminal
 	- Sometimes, depending on configuration and terminal application, you need to fully close down the terminal and stop all executions in order for it to work
