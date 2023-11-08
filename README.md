@@ -45,7 +45,8 @@ This instruction set was made for Apple Macbooks using Silicon processors but sh
 	to SSH into it.
 	1. The name can be seen in Docker application or using `docker ps`
 7. Once steps 5 finishes or 6 is run, a SSH connection will be opened to the container and if the alias and CNG_PATH was correctly set, you should be inside the `contiki-ng` folder.
-![[Pasted image 20231108114100.png]]
+<img width="1149" alt="image" src="https://github.com/danielmar18/contiki-docker/assets/33004159/61038b2d-3b27-4e65-af52-02a9faf85013">
+
 ### Docker/Contiki Troubleshoot
 - Make sure environmental paths are correct and correctly placed!
 	- They can be notoriously tricky
