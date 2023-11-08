@@ -4,13 +4,20 @@ This instruction set was made for Apple Macbooks using Silicon processors but sh
 ### Contiki Setup
 1. Install [Docker](https://docs.docker.com/desktop/) & Git
 	1. Sign In/Up in Docker Application
-2. Create directory, move into it(`cd <dir_name>`), clone Git repo and move into it (`cd contiki-ng`)
+2. **IMPORTANT:** Install the MSP430 Compiler 
+	1. Use the commands from the Vagrant bootstrap shellscript to install the compiler needed for `TARGET=sky`. It won't be used but the Contiki `make` command needs to be able to locate it.
+	2. Open a terminal and run these commands:
+		3. `wget http://simonduq.github.io/resources/mspgcc-4.7.2-compiled.tar.bz2`
+		4. `tar xjf mspgcc*.tar.bz2 -C /tmp/`
+		5. `sudo cp -f -r /tmp/msp430/* /usr/local/`
+		6. `rm -rf /tmp/msp430 mspgcc*.tar.bz2`
+3. Create directory, move into it(`cd <dir_name>`), clone Git repo and move into it (`cd contiki-ng`)
 	1. git clone [https://github.com/contiki-ng/contiki-ng.git](https://github.com/contiki-ng/contiki-ng.git) --branch release/v4.9
 	2. **IMPORTANT**: Move inside the `contiki-ng` directory before next step
-3. Add the Contiki absolute path to an environmental variable
+4. Add the Contiki absolute path to an environmental variable
 	1. `export CNG_PATH=<absolute-path-to-your-contiki-ng>`
 	2. Can be found by running `pwd`
-4. Create `contiker` alias for running the Docker image
+5. Create `contiker` alias for running the Docker image
 	1. ```bash
 	   alias contiker="docker run                                                           \
                --privileged                                                          \
@@ -40,6 +47,11 @@ This instruction set was made for Apple Macbooks using Silicon processors but sh
 	- Delete container and run steps 3 to 5 again, make sure in correct directory
 	- Delete image and run steps 3 to 5 again, make sure in correct directory
 - Classic "Break Glass in Case of Emergency" is to close&quit the terminal and try again
+- Credit: [zemendes1](https://github.com/zemendes1). If you get the error `Make is older than version 4.0.0` run the following:
+	- `brew install make`
+	- Then add the following line to ~/.zshrc or ~/.bashrc depending on terminal setup:
+		- `export PATH="/usr/local/opt/make/libexec/gnubin:$PATH”`
+
 #### Host v. Docker Workflow
 The problem for M1/M2 is the GCC and more importantly, the MSP430 compiler and it's relationship with the Vagrant tool and VM images/ISO's. Docker allows user to work in the same directory, at the same time, both on host and in Docker(As long as a given file is not used by both). This allows for the following workflow:
 - Open 2 terminals
@@ -68,9 +80,16 @@ This way, Docker takes care of compiling the actual files while every other step
 ### Cooja Setup
 1. Install [OpenJDK@17](https://formulae.brew.sh/formula/openjdk@17#default) through Homebrew
 	1. **Important**: Has to be version 17 if used with release 4.9 or so it seems
-	2. Make sure the path to the package is in the `$PATH` environmental variable
-		1. For example `export PATH=${PATH}:/opt/homebrew/opt/openjdk@17/bin` if installed through Homebrew. Installation notes usually have instructions on how to add it to environment.
-		2. If still not working, might need to add to `JAVA_HOME` environmental variable, it should point to the OpenJDK location **without** `/bin` so in this case it would be ``export JAVA_HOME=/opt/homebrew/opt/openjdk@17
+		1. Depending on Homebrew setup, you might get an error along the lines of `cannot install in Homebrew on ARM processor in Intel default prefix`. If so, add `arch -x86_64` before `brew install...` command
+	2. Add package location to `PATH` and `JAVA_HOME`:
+		1. Installation process will usually recommend the easiest way to add to the variables. If not, run `brew info openjdk@17` to find package location
+		2. **NOTE:** These paths will depend on Homebrew setup! If it won't work with the version number(`<PATH>/openjdk@17/17.X.X`), try exporting without it(`<PATH>/openjdk@17`).
+		3. Run `export PATH=${$PATH}:/<PACKAGE_LOCATION>/bin`.  E.g:
+			1. `export PATH=${$PATH}:/opt/homebrew/opt/openjdk@17/bin
+			2. `export PATH=${$PATH}:/usr/local/Cellar/openjdk@17/17.0.9/bin
+		4. Run `export JAVA_HOME=/<PACKAGE_LOCATION>`. E.g:
+			1. `export JAVA_HOME=/opt/homebrew/opt/openjdk@17
+			2. `export JAVA_HOME=/usr/local/Cellar/openjdk@17/17.0.9
 2. Move into `contiki-ng/tools/cooja` directory
 	1. Run command `git submodule update --init` to install necessary code for Cooja to run
 		1. **This will take some time to run. Get a cup of coffee, you deserve it!**
@@ -92,3 +111,5 @@ Partially based on:
 https://nitin-sharma.medium.com/setting-up-cooja-in-linux-machine-20b25cea370d
 https://anrg.usc.edu/contiki/index.php/Installation
 https://docs.contiki-ng.org/en/develop/doc/getting-started/Docker.html
+
+Special thanks to the alpha tester [zemendes1](https://github.com/zemendes1)for pointers on the process and instructions!
