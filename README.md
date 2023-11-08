@@ -1,3 +1,10 @@
+# Instructions for Set-up and usage of Contiki and Cooja
+This process was originally created for the M1/M2/M3/etc Macbooks but in theory should also work with the Intel-based Mac's with some minor tweaks to the steps. The general theory shoudl also work for Windows but will need a seperate instruction list.
+
+Apple Silicon Processors (M1, M2, etc.) :white_check_mark:
+Apple Intel-based Processors :eight_pointed_black_star:
+Windows / Linux :question:
+
 I highly recommend going through the entire instruction list once before starting the process, at least for the Contiki & Docker part. The "Contiki Setup" goes through the actual installation and setup process while "Host v. Docker Workflow" explains exactly how to get the best out the cohabitation of Docker and local terminal. 
 
 This instruction set was made for Apple Macbooks using Silicon processors but should in theory be partly useful for other OS's as well, at least the Contiki Setup itself.
