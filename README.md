@@ -1,7 +1,7 @@
 # Instructions for Set-up and usage of Contiki and Cooja
 This process was originally created for the M1/M2/M3/etc Macbooks but in theory should also work with the Intel-based Mac's with some minor tweaks to the steps. The general theory shoudl also work for Windows but will need a seperate instruction list.
 
-#### Support:
+**Support:**
 
 **Apple Silicon Processors (M1, M2, etc.)** :white_check_mark:
 
