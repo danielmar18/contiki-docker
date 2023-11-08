@@ -87,7 +87,7 @@ The problem for M1/M2 is the GCC and more importantly, the MSP430 compiler and i
 	- Same as uploading, logging onto the mote works through the local machine. This is way easier than configuring the Docker container to allow the USB connection.
 
 This way, Docker takes care of compiling the actual files while every other step can be done locally like any other development experience. 
-##### No Vagrant, No Virtual Machine!
+#### No Vagrant, No Virtual Machine!
 
 ## Cooja Setup
 1. Install [OpenJDK@17](https://formulae.brew.sh/formula/openjdk@17#default) through Homebrew
@@ -109,7 +109,7 @@ This way, Docker takes care of compiling the actual files while every other step
 	1. If you compiled a `.sky` file in previous step, try and import into a simulation!
 
 Same as with Contiki, with a bit of Homebrew and environmental path magic, we get a much simpler and more enjoyable process. Both Cooja and Mote development in the same directory, without any VM hassle.
-###### No Vagrant, No Virtual Machine!
+#### No Vagrant, No Virtual Machine!
 ### Cooja Troubleshooting
 In case the Cooja creation causes trouble, here are some possible step to resolve the issue:
 - Restart terminal
