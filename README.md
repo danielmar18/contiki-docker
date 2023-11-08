@@ -120,8 +120,11 @@ In case the Cooja creation causes trouble, here are some possible step to resolv
 	- Wasn't necessary in my case but might be in other cases
 
 Partially based on:
+
 https://nitin-sharma.medium.com/setting-up-cooja-in-linux-machine-20b25cea370d
+
 https://anrg.usc.edu/contiki/index.php/Installation
+
 https://docs.contiki-ng.org/en/develop/doc/getting-started/Docker.html
 
-Special thanks to the alpha tester [zemendes1](https://github.com/zemendes1)for pointers on the process and instructions!
+Special thanks to the alpha tester  [zemendes1](https://github.com/zemendes1) for pointers on the process and instructions!
