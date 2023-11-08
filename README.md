@@ -18,10 +18,10 @@ This instruction set was made for Apple Macbooks using Silicon processors but sh
 2. **IMPORTANT:** Install the MSP430 Compiler 
 	1. Use the commands from the Vagrant bootstrap shellscript to install the compiler needed for `TARGET=sky`. It won't be used but the Contiki `make` command needs to be able to locate it.
 	2. Open a terminal and run these commands:
-		3. `wget http://simonduq.github.io/resources/mspgcc-4.7.2-compiled.tar.bz2`
-		4. `tar xjf mspgcc*.tar.bz2 -C /tmp/`
-		5. `sudo cp -f -r /tmp/msp430/* /usr/local/`
-		6. `rm -rf /tmp/msp430 mspgcc*.tar.bz2`
+		1. `wget http://simonduq.github.io/resources/mspgcc-4.7.2-compiled.tar.bz2`
+		2. `tar xjf mspgcc*.tar.bz2 -C /tmp/`
+		3. `sudo cp -f -r /tmp/msp430/* /usr/local/`
+		4. `rm -rf /tmp/msp430 mspgcc*.tar.bz2`
 3. Create directory, move into it(`cd <dir_name>`), clone Git repo and move into it (`cd contiki-ng`)
 	1. git clone [https://github.com/contiki-ng/contiki-ng.git](https://github.com/contiki-ng/contiki-ng.git) --branch release/v4.9
 	2. **IMPORTANT**: Move inside the `contiki-ng` directory before next step
