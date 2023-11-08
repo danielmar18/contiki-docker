@@ -97,11 +97,11 @@ This way, Docker takes care of compiling the actual files while every other step
 		1. Installation process will usually recommend the easiest way to add to the variables. If not, run `brew info openjdk@17` to find package location
 		2. **NOTE:** These paths will depend on Homebrew setup! If it won't work with the version number(`<PATH>/openjdk@17/17.X.X`), try exporting without it(`<PATH>/openjdk@17`).
 		3. Run `export PATH=${$PATH}:/<PACKAGE_LOCATION>/bin`.  E.g:
-			1. `export PATH=${$PATH}:/opt/homebrew/opt/openjdk@17/bin
-			2. `export PATH=${$PATH}:/usr/local/Cellar/openjdk@17/17.0.9/bin
+			1. `export PATH=${$PATH}:/opt/homebrew/opt/openjdk@17/bin`
+			2. `export PATH=${$PATH}:/usr/local/Cellar/openjdk@17/17.0.9/bin`
 		4. Run `export JAVA_HOME=/<PACKAGE_LOCATION>`. E.g:
-			1. `export JAVA_HOME=/opt/homebrew/opt/openjdk@17
-			2. `export JAVA_HOME=/usr/local/Cellar/openjdk@17/17.0.9
+			1. `export JAVA_HOME=/opt/homebrew/opt/openjdk@17`
+			2. `export JAVA_HOME=/usr/local/Cellar/openjdk@17/17.0.9`
 2. Move into `contiki-ng/tools/cooja` directory
 	1. Run command `git submodule update --init` to install necessary code for Cooja to run
 		1. **This will take some time to run. Get a cup of coffee, you deserve it!**
